@@ -15,29 +15,29 @@
     in
     {
       overlay = final: prev: {
-        cvehound = prev.python3Packages.buildPythonPackage rec {
+        cvehound = with final; python3Packages.buildPythonPackage rec {
           pname = "cvehound";
           version = "1.0.4";
 
-          src = prev.fetchFromGitHub {
+          src = fetchFromGitHub {
             owner = "evdenis";
             repo = "cvehound";
             rev = version;
             sha256 = "sha256-m8vpea02flQ8elSvGWv9FqBhsEcBzRYjcUk+dc4kb2M=";
           };
 
-          buildInputs = with final; [
+          buildInputs = [
             coccinelle
             gnugrep
           ];
 
-          propagatedBuildInputs = with final.python3Packages; [
+          propagatedBuildInputs = with python3Packages; [
             psutil
             setuptools
             sympy
           ];
 
-          checkInputs = with final.python3Packages; [
+          checkInputs = with python3Packages; [
             GitPython
             pytest
           ];
