@@ -60,6 +60,5 @@
       checks = forAllSystems (system: {
         inherit (self.packages.${system}) cvehound;
       });
-
     };
 }
