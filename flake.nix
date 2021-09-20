@@ -26,17 +26,10 @@
             sha256 = "sha256-m8vpea02flQ8elSvGWv9FqBhsEcBzRYjcUk+dc4kb2M=";
           };
 
-          buildInputs = [
-            makeWrapper
-          ];
-
-          postFixupPhase = ''
-            # Programs needed at run-time
-            wrapProgram $out/bin/cvehound --prefix PATH : ${lib.makeBinPath [
-              coccinelle
-              gnugrep
-            ]}
-          '';
+          makeWrapperArgs = [ "--prefix" "PATH" ":" (lib.makeBinPath [
+            coccinelle
+            gnugrep
+          ])];
 
           propagatedBuildInputs = with python3Packages; [
             psutil
