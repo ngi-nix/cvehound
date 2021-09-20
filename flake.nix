@@ -27,9 +27,16 @@
           };
 
           buildInputs = [
-            coccinelle
-            gnugrep
+            makeWrapper
           ];
+
+          postFixupPhase = ''
+            # Programs needed at run-time
+            wrapProgram $out/bin/cvehound --prefix PATH : ${lib.makeBinPath [
+              coccinelle
+              gnugrep
+            ]}
+          '';
 
           propagatedBuildInputs = with python3Packages; [
             psutil
