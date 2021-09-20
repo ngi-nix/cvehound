@@ -41,6 +41,17 @@
             GitPython
             pytest
           ];
+
+          meta = with lib; {
+            description = ''
+              A tool to check linux kernel source dump for known CVEs
+            '';
+            homepage = "https://github.com/evdenis/cvehound";
+            # See https://github.com/evdenis/cvehound/issues/22
+            license = with licenses; [ gpl2Only gpl3Only ];
+            platforms = platforms.linux;
+            maintainers = with maintainers; [ ambroisie ];
+          };
         };
       };
 
