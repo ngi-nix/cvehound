@@ -1,5 +1,5 @@
 {
-  description = "An over-engineered Hello World in bash";
+  description = "A tool to check linux kernel source dump for known CVEs";
 
   # Nixpkgs / NixOS version to use.
   inputs.nixpkgs.url = "nixpkgs/nixos-21.05";
