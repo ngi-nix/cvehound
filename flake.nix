@@ -49,7 +49,7 @@
             homepage = "https://github.com/evdenis/cvehound";
             # See https://github.com/evdenis/cvehound/issues/22
             license = with licenses; [ gpl2Only gpl3Only ];
-            platforms = platforms.linux;
+            platforms = platforms.unix;
             maintainers = with maintainers; [ ambroisie ];
           };
         };
